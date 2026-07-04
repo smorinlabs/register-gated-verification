@@ -75,7 +75,9 @@ This step is human-paced: after each question or batch, **STOP — wait for the 
 
 ### Step 4 — Register
 Every resolution becomes an immutable Dnnn entry in DECISIONS.md: ID · area · the decision
-· status (proposed | ratified | overridden | superseded-by-Dnnn) · sources · date. Entries
+· status (proposed | ratified | superseded-by-Dnnn) · sources · date. An override is a
+RATIFIED entry whose decision text records the overridden recommendation and the human's
+reasoning verbatim — override is content, not a status. Entries
 are never edited — change is a new entry that supersedes the old one and says so. Rejected
 alternatives and their reasons live here too; that keeps the design docs clean.
 

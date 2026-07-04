@@ -19,7 +19,8 @@ Work through the checks in order; each pass moves you to the next, and the first
 tells you the current phase. Record what you find — you will report it.
 
 1. **archive/ + MANIFEST** — does an immutable source archive exist, with a MANIFEST
-   (origin → copy, date, checksum), INDEX, and gap list? Missing or partial → intake work.
+   (origin → copy, date, checksum) and an INDEX (incl. its gap-list section)? Missing or
+   partial → intake work.
 2. **DECISIONS.md with meta-entries** — does the register exist AND contain the seed
    meta-decisions (question-format bar, sanctioned-oracle list, gate rules,
    evidence-recency rule, derivation discipline)? A register without meta-entries is
@@ -28,12 +29,17 @@ tells you the current phase. Record what you find — you will report it.
 4. **Area list + ratification status** — find the area list (in PROCESS.md, or the area
    file the seed left). For each area in dependency order, look for its ratification /
    closure entry in the register. The first area without one is the live area.
-5. **FREEZE.md** — if it exists (manifest + gated-upgrade catalog + change policy), the
-   design is frozen.
+5. **FREEZE.md** — if it exists (manifest + gated-upgrade catalog + watch list + change
+   policy) with its freeze register entry, the design is frozen.
 
 For the live area, also fix the mid-cycle position from its artifacts, in loop order:
 mining notes → decision doc → register entries for its questions → area design doc →
 QA (gate) report → executed ledger (grep post-conditions recorded) → ratification entry.
+
+If all areas are ratified but FREEZE.md is absent, fix the close-phase position the same
+way, in pass order: zoom-out report → its ratification entry → freshness report → its
+ratification entry → FREEZE.md + the freeze entry. The first missing artifact or entry is
+the live pass; rgv-close resumes there.
 
 ## Step 2 — Route
 
@@ -42,8 +48,13 @@ QA (gate) report → executed ledger (grep post-conditions recorded) → ratific
 | no archive/, or MANIFEST/INDEX/gap list incomplete | **rgv-intake** |
 | archive + MANIFEST, but no DECISIONS.md meta-entries or no PROCESS.md | **rgv-seed** |
 | seeded; unratified areas remain | **rgv-cycle** for the first unratified area |
-| all areas ratified; no FREEZE.md | **rgv-close** |
+| all areas ratified; no FREEZE.md | **rgv-close** (resumes at the first unratified pass) |
 | FREEZE.md present | **rgv-derive** |
+
+`rgv-gate` and `rgv-sweep` are within-phase mechanics, not phases: the conductor never
+routes to them as a destination. They are invoked mid-phase — the gate by rgv-cycle
+(step 6), the sweep by rgv-cycle (step 7) or rgv-close — or directly by the user on a
+specific target doc (gate) or ledger (sweep).
 
 ## NEVER skip a gate
 
@@ -57,7 +68,12 @@ If it is, the route is a question to the user, not a skill:
   forest check).
 - cycle artifacts complete but no ratification entry in the register → Gate 5 pending.
 - close-phase reports (zoom-out, freshness) written but not ratified → that pass's gate
-  is pending.
+  is pending; FREEZE.md written but no freeze register entry → the freeze ratification is
+  pending.
+- derive-phase flag list written but flags without register entries → the flag-adjudication
+  gate is pending.
+- intake/seed artifacts half-built (scope or grouping unconfirmed, meta-entries mid-set) →
+  that skill's own interview gate is pending; route to it and it will re-ask.
 
 In every such case: report which gate is open, name the artifact (path + register refs),
 ask for the ratification or answers, and 🧑 **STOP — wait for the user.** Nothing advances

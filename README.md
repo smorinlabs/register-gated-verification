@@ -23,4 +23,4 @@ A method — and a Claude skill family — for consolidating research into verif
 [pattern](docs/pattern.md) · [terminology](docs/terminology.md) · [inputs & initial state](docs/inputs-and-state.md) · [instruction anatomy](docs/instruction-anatomy.md) · [case study](docs/case-study.md)
 
 ## Status
-v0.1 — docs core + heart skills under construction. Install: grab `dist/*.skill` (when published).
+v0.2-pre — docs core, all eight skills, case study + exhibits authored; self-gated (docs/self-gate-report.md). Packaging (`dist/*.skill`) and publish pending. Install: grab `dist/*.skill` (when published).

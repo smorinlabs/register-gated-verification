@@ -32,11 +32,25 @@ Each phase leaves state on disk that the next phase requires — phases hand off
 
 **The meta-mechanism**: the process is self-hosted — process rules are themselves register entries, amended by supersession like any design decision. Human feedback about the process ("short briefs don't work") becomes a citable, enforced rule, not folklore.
 
+**One sanctioned exception to the two-phase ledger discipline**: the close's freshness pass applies CHANGED fact-fixes directly, as patch bumps citing the pass — no separate ledger-then-sweep. It stays safe because the exception is fact-class only (anything touching a ratified mechanism is still flagged, never fixed), the pass report enumerates every fix per-item (the report is the ledger), and the pass's own ratification gate reviews the list before it stands.
+
 ## 4. The chaining rule (skill orchestration)
 
 - **Within a phase**: skills/agents invoke each other directly (cycle → gate → sweep) — mechanics need no permission.
 - **Across a human gate: never auto-invoke.** The skill ends with a **handoff block** (canonical format: instruction-anatomy §5).
-- **The conductor (rgv)** reads repo state cold and routes: no register → seed; areas remaining → cycle; all ratified → close; frozen → derive. Any session, any point, one invocation resumes correctly.
+- **The conductor (rgv)** reads repo state cold and routes: no archive → intake; no register → seed; areas remaining → cycle; all ratified → close; frozen → derive. Any session, any point, one invocation resumes correctly.
+
+**The full gate census** (every point a named human must ratify, across the lifecycle — the cycle's five are the famous ones, not the only ones):
+
+| Phase | Human gates |
+|---|---|
+| intake | 2 — scope confirmation · grouping ratification |
+| seed | the whole phase — an interview, human-paced per meta-decision |
+| cycle (× N areas) | 5 — document read · gated Q&A · gate-report triage · post-sweep forest check · area ratification |
+| close | 3 — one ratification per pass: zoom-out · freshness · freeze |
+| derive | 1 — flag adjudication |
+
+rgv-gate's genuine-choice channel surfaces inside the cycle's gate 3 (or standalone, its own stop); rgv-sweep has none — it is mechanics, and the checkpoint after it belongs to its caller.
 
 ## 5. Failure modes this pattern is built against
 

@@ -21,11 +21,11 @@
 ## Core RGV terms
 
 - **Register**: the append-only decision log (Dnnn entries). Entries are immutable; change = supersession.
-- **Gate**: a point where a named human must ratify before anything advances. Five per cycle.
+- **Gate**: a point where a named human must ratify before anything advances. Five per cycle; the full lifecycle census (intake 2, seed's interview, close 3, derive 1) is in pattern.md §4. Distinguish the **adversarial gate** (the IV&V review pass, rgv-gate, producing a *gate report*) — an agent activity named for the human gate it feeds (cycle gate 3), not itself a ratification point.
 - **Oracle**: the authority a claim is verified against. Assigned by claim type (see instruction-anatomy).
 - **Decision document**: the completed-staff-work artifact — every open question with context/evidence/options/rec/runner-up. Questions are asked ONLY from it.
 - **Derivation**: an artifact produced purely from ratified decisions (design docs, runbooks). Zero new decisions; deviations are flags.
-- **Ledger**: a derivation's list of cross-document amendments — listed, not applied; execution is a separate, checked step.
+- **Ledger**: a list of cross-document amendments — a derivation's ledger section or a gate report's accepted fix list — listed, not applied; execution is a separate, checked step.
 - **Sweep**: applying a ledger across the corpus with version bumps and grep post-conditions.
 - **Handoff block**: the standard end-of-skill state statement naming the next skill; the user's word crosses the gate.
 - **Override**: a human decision against the recommendation — first-class, recorded verbatim with reasoning.

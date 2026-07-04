@@ -17,6 +17,12 @@ sanctioned-oracle list (a register meta-entry). Leaves on disk: a gate report (f
 adjudications + verdict). Missing any required state → **STOP and route to the conductor
 (`rgv`)** rather than improvising.
 
+**Standalone relaxation** (the sole exception, per docs/inputs-and-state.md): outside an
+RGV repo, rgv-gate may run report-only against an **ad-hoc oracle list supplied by the
+user** — no register required, no sweep implied. The register-conformance rows of the
+claim-type table simply don't fire; everything else (fresh-context reviewer, re-derive,
+per-item verdicts, access-dated citations) binds unchanged.
+
 ## IV&V rules (non-negotiable)
 
 - **Reviewer ≠ author.** The review runs in a FRESH-context agent launched from

@@ -58,7 +58,7 @@ One cycle in miniature — **Area 8, data & artifacts**, all on 2026-06-12:
 
 1. **Mine**: fresh-context agent extracts the area's claims and conflicts from the archive, chronologically (the tfvars-vs-write-only arc above is its mining note #1).
 2. **Decision document**: six questions (S1–S6), each at the completed-staff-work bar — see [`examples/decision-doc-section.md`](../examples/decision-doc-section.md) for S1 whole.
-3. **Gated Q&A**: the operator reads, then ratifies one-by-one → **D056** (all six, as recommended — but only after reading the runners-up).
+3. **Gated Q&A + register** (loop steps 3–4): the operator reads, then ratifies one-by-one → **D056** (all six, as recommended — but only after reading the runners-up).
 4. **Derive**: a different fresh-context agent writes A8-data.md from the register alone; cross-doc amendments go to a ledger, unapplied.
 5. **Adversarial gate**: a third agent attacks it → the report behind **D057**, catching among other things that the recommended IAM grant would 404 at genesis (the repo it binds to wouldn't exist yet — create-then-bind reordering).
 6. **Sweep**: the ledger executes across five other docs with version bumps.
