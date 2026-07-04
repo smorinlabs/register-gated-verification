@@ -30,3 +30,7 @@
 - **Handoff block**: the standard end-of-skill state statement naming the next skill; the user's word crosses the gate.
 - **Override**: a human decision against the recommendation — first-class, recorded verbatim with reasoning.
 - **Freeze**: the immutability boundary; after it, docs change only via register supersession.
+- **Entry criteria**: a skill's gate-zero checklist (`references/entry-criteria.md`) — MUST-HAVES (any miss ⇒ REJECTED) and STRENGTHENERS (miss ⇒ IMPROVABLE). The stage-gate term, used in its stage-gate sense: conditions verified before a phase may begin.
+- **Gate zero**: the readiness check every skill runs before its first step — and the conductor runs for the target skill before routing. Not a human ratification gate: a mechanical entry check whose only human moment is the override.
+- **Readiness verdict**: gate zero's output — READY / IMPROVABLE / REJECTED — written to READINESS.md with a per-criterion PASS/MISS table. Canonical semantics: each skill's `references/gate-zero-verdicts.md`.
+- **Recorded override**: the only way past a REJECTED verdict — a register entry carrying the human's decision to proceed despite missing must-haves, reasoning verbatim. Proceeding on bad inputs is itself a decision worth recording.

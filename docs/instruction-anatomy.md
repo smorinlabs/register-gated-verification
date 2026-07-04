@@ -47,3 +47,27 @@ STATE: <what is now true, with register/doc refs>
 NEXT:  <named skill or gate> — <one-line why>
        (crosses a human gate → say "continue" or invoke directly)
 ```
+
+## 6. The READINESS.md block (gate zero's record)
+
+Every gate-zero evaluation — the conductor's pre-routing check or a skill's own step 0 —
+writes one block to `READINESS.md` at the TARGET project's repo root. Re-runs append a new
+block (newest last); nothing is deleted. Criteria are quoted from the skill's
+`references/entry-criteria.md`; verdict semantics are `references/gate-zero-verdicts.md`.
+
+```
+## {YYYY-MM-DD} · {skill} · verdict: {READY | IMPROVABLE | REJECTED}
+
+| Criterion | Class | Verdict |
+|---|---|---|
+| {criterion, verbatim from entry-criteria.md} | MUST-HAVE | PASS |
+| {criterion} | STRENGTHENER | MISS |
+
+Guidance: {one line per MISS — exactly what to assemble (must-have) or what would
+           strengthen (strengthener); "none" when all pass}
+Override:  {none | D0NN — the human's reasoning, verbatim}
+```
+
+An IMPROVABLE run records its strengthening guidance even though it proceeds. A REJECTED
+run proceeds only when the Override line cites a real register entry — the recorded
+override IS the authority to continue.

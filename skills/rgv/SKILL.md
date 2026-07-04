@@ -41,7 +41,7 @@ way, in pass order: zoom-out report → its ratification entry → freshness rep
 ratification entry → FREEZE.md + the freeze entry. The first missing artifact or entry is
 the live pass; rgv-close resumes there.
 
-## Step 2 — Route
+## Step 2 — Route (through gate zero, always)
 
 | Observed state | Route to |
 |---|---|
@@ -50,6 +50,15 @@ the live pass; rgv-close resumes there.
 | seeded; unratified areas remain | **rgv-cycle** for the first unratified area |
 | all areas ratified; no FREEZE.md | **rgv-close** (resumes at the first unratified pass) |
 | FREEZE.md present | **rgv-derive** |
+
+**Gate zero before routing.** Once the target skill is picked, evaluate THAT skill's
+`references/entry-criteria.md` — every MUST-HAVE and STRENGTHENER gets a per-criterion
+PASS/MISS — issue the verdict per `references/gate-zero-verdicts.md` (READY / IMPROVABLE /
+REJECTED), and write the run's block to `READINESS.md` at the project root. Route only on
+READY (state why) or IMPROVABLE (state what would strengthen). On REJECTED: **HARD STOP** —
+name each missing must-have and exactly what to assemble; the human MAY override, and the
+override is a register entry carrying their reasoning verbatim — route on that recorded
+entry only. Never silently route past a REJECTED.
 
 `rgv-gate` and `rgv-sweep` are within-phase mechanics, not phases: the conductor never
 routes to them as a destination. They are invoked mid-phase — the gate by rgv-cycle

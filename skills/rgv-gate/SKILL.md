@@ -23,6 +23,15 @@ user** — no register required, no sweep implied. The register-conformance rows
 claim-type table simply don't fire; everything else (fresh-context reviewer, re-derive,
 per-item verdicts, access-dated citations) binds unchanged.
 
+## Step 0 — GATE ZERO (entry-criteria check)
+
+Before anything else: evaluate `references/entry-criteria.md` — every MUST-HAVE and every
+STRENGTHENER gets a per-criterion PASS/MISS — then issue the verdict per
+`references/gate-zero-verdicts.md` (READY / IMPROVABLE / REJECTED) and write the run's
+block to `READINESS.md` at the target project's repo root. On REJECTED: **HARD STOP** —
+name each missing must-have and exactly what to assemble; proceed only on a recorded
+register override. Never silently proceed on bad inputs.
+
 ## IV&V rules (non-negotiable)
 
 - **Reviewer ≠ author.** The review runs in a FRESH-context agent launched from

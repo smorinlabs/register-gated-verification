@@ -19,4 +19,6 @@
 | rgv-close | all areas ratified | zoom-out report, freshness report, FREEZE.md (manifest + gated-upgrade catalog + watch list + change policy) |
 | rgv-derive | FREEZE.md with its ratifying register entry (an unratified FREEZE.md is a draft) | runbooks/guides citing frozen decisions; flags for anything the corpus left open |
 
-A skill invoked without its required state STOPS and routes to the conductor rather than improvising (sole exception: rgv-gate's standalone relaxation above). Artifact file naming follows PROCESS.md's stated conventions; absent one, skills use their documented defaults and record them in PROCESS.md.
+**READINESS.md** (repo root of the target project) is a contract-wide artifact, not a phase artifact: EVERY skill leaves/updates it at gate zero — one block per run (date · skill · verdict · per-criterion PASS/MISS table · guidance · override record if any; format: instruction-anatomy §6). No skill requires it; every skill appends to it.
+
+A skill invoked without its required state STOPS and routes to the conductor rather than improvising (sole exception: rgv-gate's standalone relaxation above). Gate zero formalizes this stop: each skill's `references/entry-criteria.md` derives from this table plus the skill's real failure modes, and a missing must-have is a REJECTED verdict — passable only by a recorded register override. Artifact file naming follows PROCESS.md's stated conventions; absent one, skills use their documented defaults and record them in PROCESS.md.

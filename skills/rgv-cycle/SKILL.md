@@ -21,6 +21,15 @@ Use PROCESS.md's file conventions where it names them; otherwise default to
 `mining/{AREA}-mining-notes.md`, `decisions/{AREA}-decision-doc.md`,
 `design/{AREA}-<name>.md`, `qa/{AREA}-qa-report-{YYYY-MM-DD}.md`.
 
+## Step 0 — GATE ZERO (entry-criteria check)
+
+Before anything else: evaluate `references/entry-criteria.md` — every MUST-HAVE and every
+STRENGTHENER gets a per-criterion PASS/MISS — then issue the verdict per
+`references/gate-zero-verdicts.md` (READY / IMPROVABLE / REJECTED) and write the run's
+block to `READINESS.md` at the target project's repo root. On REJECTED: **HARD STOP** —
+name each missing must-have and exactly what to assemble; proceed only on a recorded
+register override. Never silently proceed on bad inputs.
+
 ## Agent discipline (applies to steps 1, 2, 5, 6, 7)
 
 Every delegated step launches a **fresh-context agent** — a new agent with no conversation

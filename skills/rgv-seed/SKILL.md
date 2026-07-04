@@ -21,6 +21,15 @@ Leaves on disk: `DECISIONS.md` seeded with the meta-entries · `PROCESS.md`, whi
 the dependency-ordered area list and the artifact-naming conventions (downstream skills
 read their file conventions from it).
 
+## Step 0 — GATE ZERO (entry-criteria check)
+
+Before anything else: evaluate `references/entry-criteria.md` — every MUST-HAVE and every
+STRENGTHENER gets a per-criterion PASS/MISS — then issue the verdict per
+`references/gate-zero-verdicts.md` (READY / IMPROVABLE / REJECTED) and write the run's
+block to `READINESS.md` at the target project's repo root. On REJECTED: **HARD STOP** —
+name each missing must-have and exactly what to assemble; proceed only on a recorded
+register override. Never silently proceed on bad inputs.
+
 ## Interview discipline (binding throughout)
 
 - One topic per exchange; after each, **STOP — wait for the user.** This skill is

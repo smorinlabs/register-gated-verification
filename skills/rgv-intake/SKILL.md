@@ -23,6 +23,15 @@ work, not indexing. A *partial* intake (e.g. new sources surfaced after the firs
 resumes here: new files get new MANIFEST rows and an INDEX update note; existing archive
 copies are never touched.
 
+## Step 0 — GATE ZERO (entry-criteria check)
+
+Before anything else: evaluate `references/entry-criteria.md` — every MUST-HAVE and every
+STRENGTHENER gets a per-criterion PASS/MISS — then issue the verdict per
+`references/gate-zero-verdicts.md` (READY / IMPROVABLE / REJECTED) and write the run's
+block to `READINESS.md` at the target project's repo root. On REJECTED: **HARD STOP** —
+name each missing must-have and exactly what to assemble; proceed only on a recorded
+register override. Never silently proceed on bad inputs.
+
 ## Step 1 — 🧑 GATE: scope confirmation
 
 Propose the search scope before searching in earnest: locations to scan (folders, repos,

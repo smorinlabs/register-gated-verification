@@ -21,6 +21,15 @@ Leaves on disk: the edited documents, each version-bumped with a changelog line 
 D-IDs · recorded grep evidence (expected vs actual, verbatim). The sweep writes no report
 file of its own; its report returns to the caller.
 
+## Step 0 — GATE ZERO (entry-criteria check)
+
+Before anything else: evaluate `references/entry-criteria.md` — every MUST-HAVE and every
+STRENGTHENER gets a per-criterion PASS/MISS — then issue the verdict per
+`references/gate-zero-verdicts.md` (READY / IMPROVABLE / REJECTED) and write the run's
+block to `READINESS.md` at the target project's repo root. On REJECTED: **HARD STOP** —
+name each missing must-have and exactly what to assemble; proceed only on a recorded
+register override. Never silently proceed on bad inputs.
+
 ## No gates here — and why
 
 The sweep is within-phase mechanics: every judgment it executes was already made at a

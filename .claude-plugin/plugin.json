@@ -1,0 +1,9 @@
+{
+  "name": "rgv",
+  "displayName": "Register-Gated Verification",
+  "description": "Consolidate research into verified designs: an 8-skill family implementing the RGV pattern — decision register, human gates, adversarial verification, gate-zero input readiness. Invoke 'rgv' to route from any project state.",
+  "version": "0.3.0",
+  "author": { "name": "Steve Morin", "url": "https://github.com/smorinlabs" },
+  "homepage": "https://github.com/smorinlabs/register-gated-verification",
+  "license": "MIT"
+}

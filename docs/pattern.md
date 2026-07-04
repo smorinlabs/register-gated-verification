@@ -38,7 +38,19 @@ Each phase leaves state on disk that the next phase requires — phases hand off
 
 - **Within a phase**: skills/agents invoke each other directly (cycle → gate → sweep) — mechanics need no permission.
 - **Across a human gate: never auto-invoke.** The skill ends with a **handoff block** (canonical format: instruction-anatomy §5).
-- **The conductor (rgv)** reads repo state cold and routes: no archive → intake; no register → seed; areas remaining → cycle; all ratified → close; frozen → derive. Any session, any point, one invocation resumes correctly.
+- **The conductor (rgv)** reads repo state cold and routes: no archive → intake; no register → seed; areas remaining → cycle; all ratified → close; frozen → derive. Any session, any point, one invocation resumes correctly — through gate zero, below.
+
+### Gate zero (entry criteria)
+
+Bad inputs defeat the process rather than degrade it — an undatable corpus breaks recency weighting; an absent adjudicator makes every gate a fiction. So every skill opens with a readiness check against its `references/entry-criteria.md` — **entry criteria** in the stage-gate sense: conditions verified before a phase may begin — split into MUST-HAVES and STRENGTHENERS. The conductor evaluates the target skill's criteria BEFORE routing; each skill re-runs the check when invoked directly.
+
+Three verdicts (canonical text: each skill's `references/gate-zero-verdicts.md`):
+
+- **READY** — every criterion passes. State why (which criteria passed), then begin.
+- **IMPROVABLE** — must-haves pass, one or more strengtheners miss. Beginning is allowed; state what would strengthen and record it in READINESS.md.
+- **REJECTED** — any must-have missing. **Hard stop**: name each missing must-have and exactly what to assemble. The human MAY override, and the override is written to the register as an override entry with their reasoning — on-pattern, because proceeding on bad inputs is itself a decision worth recording. Never silently proceed.
+
+Every evaluation writes its verdict block to `READINESS.md` at the project root (format: instruction-anatomy §6).
 
 **The full gate census** (every point a named human must ratify, across the lifecycle — the cycle's five are the famous ones, not the only ones):
 
@@ -54,4 +66,4 @@ rgv-gate's genuine-choice channel surfaces inside the cycle's gate 3 (or standal
 
 ## 5. Failure modes this pattern is built against
 
-Silent skips (→ exhaustiveness contracts) · confirmation bias (→ re-derivation + independence) · propagation debt / shadow schemas (→ ledgers + sweeps + grep post-conditions) · folklore process (→ self-hosted rules) · lost context between sessions (→ state on disk) · unratified drift (→ gates) · stale facts (→ access-dated citations + a dedicated freshness pass) · scope creep in derivations (→ "zero new decisions; flag, don't resolve").
+Garbage inputs (→ gate zero: entry criteria + readiness verdicts) · silent skips (→ exhaustiveness contracts) · confirmation bias (→ re-derivation + independence) · propagation debt / shadow schemas (→ ledgers + sweeps + grep post-conditions) · folklore process (→ self-hosted rules) · lost context between sessions (→ state on disk) · unratified drift (→ gates) · stale facts (→ access-dated citations + a dedicated freshness pass) · scope creep in derivations (→ "zero new decisions; flag, don't resolve").

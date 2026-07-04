@@ -26,3 +26,27 @@
       Self-gate run 2026-06-12: docs/self-gate-report.md — 16 findings, 5 flag
       adjudications, mechanical fixes applied; 1 genuine-choice item left to the human
       (freshness contract template). Publish remains.
+
+## [~] Project P04: Gate-zero readiness system (v0.3.0)
+**Goal**: Conductor + per-skill entry criteria; REJECTED = hard block passable only by a
+recorded register override; verdicts written to READINESS.md at the target repo root;
+repo stays the plugin source
+
+### Tests & Tasks
+- [x] [P04-T01] references/entry-criteria.md for all 7 phase/mechanic skills
+      (MUST-HAVES + STRENGTHENERS derived from inputs-and-state.md + each skill's
+      real failure modes)
+- [x] [P04-T02] references/gate-zero-verdicts.md — canonical verdict semantics
+      (READY / IMPROVABLE / REJECTED + recorded-override rule), byte-identical copy
+      in all 8 skills' references/
+- [x] [P04-T03] SKILL.md "Step 0 — GATE ZERO" blocks (byte-identical across the 7
+      skills) + conductor Step 2 routes through gate zero (detect → pick target →
+      entry criteria → verdict → route only on READY/IMPROVABLE or recorded override)
+- [x] [P04-T04] Docs: pattern.md §4 "Gate zero (entry criteria)" subsection + §5
+      garbage-inputs failure mode; instruction-anatomy.md §6 READINESS.md block
+      format; terminology.md 4 new terms; inputs-and-state.md READINESS.md
+      contract-wide artifact + gate-zero stop rule
+- [x] [P04-TS01] Diff check: gate-zero-verdicts.md identical across all 8 skills
+      (shasum match); SKILL.md Step 0 blocks identical across all 7 (extracted-diff)
+- [ ] [P04-T05] Re-zip dist/*.skill with the gate-zero files (rides with P03 publish;
+      pre-zip contract-diff check now also covers gate-zero-verdicts.md copies)
